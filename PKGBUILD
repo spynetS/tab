@@ -3,18 +3,18 @@
 # NOTE: Please fill out the license field for your package! If it is unknown,
 # then please put 'unknown'.
 
-# Maintainer: Your Name <youremail@domain.com>
-pkgname=NAME
-pkgver=VERSION
+# Maintainer: Alfred Roos <alfred@stensatter.se>
+pkgname=tab-git
+pkgver=1
 pkgrel=1
 epoch=
-pkgdesc=""
-arch=()
-url=""
-license=('GPL')
+pkgdesc="This is a simple program that opens a new terminal from your current diriectory"
+arch=(x86_64)
+url="https://github.com/spynetS/tab"
+license=('GL')
 groups=()
 depends=()
-makedepends=()
+makedepends=(git)
 checkdepends=()
 optdepends=()
 provides=()
@@ -24,29 +24,17 @@ backup=()
 options=()
 install=
 changelog=
-source=("$pkgname-$pkgver.tar.gz"
-        "$pkgname-$pkgver.patch")
+source=("git+$url")
 noextract=()
-md5sums=()
+md5sums=('SKIP')
 validpgpkeys=()
 
 prepare() {
-	cd "$pkgname-$pkgver"
-	patch -p1 -i "$srcdir/$pkgname-$pkgver.patch"
-}
-
-build() {
-	cd "$pkgname-$pkgver"
-	./configure --prefix=/usr
-	make
-}
-
-check() {
-	cd "$pkgname-$pkgver"
-	make -k check
+    git clone $url gittab
 }
 
 package() {
-	cd "$pkgname-$pkgver"
-	make DESTDIR="$pkgdir/" install
+    cd gittab
+    sudo cp tab.sh /usr/bin/tab.sh
+    export tab=/usr/bin/tab.sh
 }

@@ -2,7 +2,6 @@
 
 config=~/.config/tab.config
 
-
 if test -f "$config"; then
     . "$config"
 else
