@@ -4,13 +4,13 @@
 # then please put 'unknown'.
 
 # Maintainer: Alfred Roos <alfred@stensatter.se>
-pkgname=tab-git
+pkgname=taber-git
 pkgver=1
 pkgrel=1
 epoch=
 pkgdesc="This is a simple program that opens a new terminal from your current diriectory"
 arch=(x86_64)
-url="https://github.com/spynetS/tab"
+url="https://github.com/spynetS/taber"
 license=('GL')
 groups=()
 depends=()
