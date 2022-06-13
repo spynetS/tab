@@ -10,7 +10,6 @@ else
     . "$config"
 fi
 
-
-place = pwd
-exec "$terminal" $place
+place=pwd
+exec "$terminal" $place &
 
